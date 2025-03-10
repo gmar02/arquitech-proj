@@ -1,8 +1,8 @@
-# Projeto em grupo
+# Projeto em grupo (Tópicos Integradores III)
 
-## website com Flask, HTML e Bootstrap
-Inicialize o ambiente virtual com `source ./.venv/bin/activate` na pasta mãe
-Inicialize o app com `flask run` também na pasta mãe
+## Website com Flask, HTML e Bootstrap
+* Inicialize o ambiente virtual com `source ./.venv/bin/activate` na pasta mãe
+* Inicialize o app com `flask run` também na pasta mãe
 
 ## Integrantes:
 
@@ -10,8 +10,9 @@ Inicialize o app com `flask run` também na pasta mãe
 * nome 2;
 * nome 3; 
 
-## referencias
+## Referências
 
 * https://docs.python.org/3/library/venv.html
 * https://flask.palletsprojects.com/en/stable/quickstart/
 * https://htmlboilerplates.com/
+* https://www.conventionalcommits.org/en/v1.0.0/
