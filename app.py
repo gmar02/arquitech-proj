@@ -1,31 +1,34 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
+###############################################################
+
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///data.db'
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///schema.db'
+schema = SQLAlchemy(app)
 
-database = SQLAlchemy(app)
+###############################################################
 
-# tabela de membros do grupo, apenas para teste
-class Membro(database.Model):
-    
-    __tablename__ = "membro"
-
-    id = database.Column(database.Integer, primary_key=True)
-    nome = database.Column(database.String(150), unique=True, nullable=False)
-    matricula = database.Column(database.Integer, unique=True, nullable=True)
-    email = database.Column(database.String(200), unique=True, nullable=True)
+class Usuario(schema.Model):
+    id = schema.Column(schema.Integer, primary_key=True)
+    nome = schema.Column(schema.String(200), nullable=False)
+    perfil = schema.Column(schema.String(1), nullable=False)
+    senha = schema.Column(schema.String(200), nullable=False)
 
     def __repr__(self):
-        return f"Membro(id = {self.id}, nome = {self.nome}, matricula = {self.matricula}, email = {self.email}"
+        return '<Usuário %r>' % self.id
 
+###############################################################
 
-@app.route("/")
-def main():
+@app.route("/", methods=['GET'])
+def index():
+    return render_template('index.html')
 
-    # obtendo todos os membros
-    membros = Membro.query.all()
+###############################################################
 
-    return render_template('index.html', membros=membros)
+if __name__ == "__main__":
+    
+    with app.app_context():
+        schema.create_all()
 
+    app.run(debug=True)

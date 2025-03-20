@@ -1,16 +1,18 @@
 # Projeto em grupo (Tópicos Integradores III)
 
 ## Website com Flask, HTML e Bootstrap
+
 * Inicialize o ambiente virtual `source ./.venv/bin/activate`
-* (opcional) Edite o banco com `sqlite3 data.db`
-* Para criar a tabela para ORM: `from app import database; database.create_all()` no flask shell
+
+* Inicialize o shell python `flask shell`
+
+* Execute os comandos `from app import schema` e `schema.create_all(); exit()`
+
 * Inicialize o app com `flask run`
 
 ## Integrantes:
 
 * Guilherme Elias Marinho (03350321);
-* nome 2;
-* nome 3; 
 
 ## Referências
 
