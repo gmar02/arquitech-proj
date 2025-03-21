@@ -1,8 +1,16 @@
-# Projeto em grupo (Tópicos Integradores III)
+# Projeto em grupo - Tópicos Integradores III
 
-## Website com Flask, HTML e Bootstrap
+## Descrição
+
+* Aplicação web para posts de arquitetura. 
+
+## Instruções
+
+* Crie um ambiente virtual no repositório utilizando `python3 -m venv venv`
 
 * Inicialize o ambiente virtual `source ./.venv/bin/activate`
+
+* Instale as dependências utilizando `pip install -r requirements.txt`
 
 * Crie o schema e carregue os dados com `flask inic_dados`
 
@@ -10,7 +18,7 @@
 
 * Visite a URL `localhost:5000/` - certifique-se que o shell está rodando!
 
-## Integrantes:
+## Integrantes
 
 * Guilherme Elias Marinho (03350321);
 * Victor Hugo de Sá Reis (03232089);
