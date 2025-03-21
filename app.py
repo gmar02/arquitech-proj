@@ -31,6 +31,7 @@ def inicializar_dados():
     print("Criando schema...")
     with app.app_context():
         schema.create_all()
+        print("Schema criado com sucesso!")
 
     print("Carregando dados para o schema...")
     carregar_dados()
@@ -45,19 +46,27 @@ def login():
         senha = request.form['password']
 
         usuario = Usuario.query.filter_by(nome=nome, senha=senha).first()
+        
         if usuario:
-            return redirect("/teste")
+
+            if usuario.perfil == 'A':
+                return redirect(f"/autor/{usuario.id}")
+
+            return redirect(f"/leitor/{usuario.id}")
         
         return "Usuário e/ou senha inválidos", 401
 
     return render_template('login.html')
 
-@app.route("/teste", methods=['GET'])
-def teste():
-    return "LOGIN REALIZADO COM SUCESSO"
+@app.route("/autor/<int:id>", methods=['GET'])
+def autor(id):
+    return f"BEM VINDO À PÁGINA DO AUTOR! ID: {id}"
+
+@app.route("/leitor/<int:id>", methods=['GET'])
+def leitor(id):
+    return f"BEM VINDO À PÁGINA DO LEITOR! ID: {id}"
 
 ###############################################################
 
 if __name__ == "__main__":
     app.run(debug=True)
-    

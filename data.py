@@ -13,7 +13,7 @@ def carregar_dados():
     # Executar o script SQL
     try:
         cursor.executescript(sql_script)
-        print("Dados carregados com sucesso no schema!")
+        print("Dados carregados com sucesso para o schema!")
     except sqlite3.Error as e:
         print(f"Erro ao carregar dados: {e}")
     
