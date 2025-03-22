@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+    <title>Página do Autor</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Seja bem vindo&lpar;a&rpar; {{ autor.nome }}&excl;</h1>
+
+<hr>
+
+    <h2>Lista dos seus posts:</h2>
+    {% if posts_do_autor %}
+        <ul>
+            {% for post in posts_do_autor %}
+                <li>
+                    <b>{{ post.titulo }}</b> <br>
+                    <em>{{ post.subtitulo }}</em> <br>
+                    <p>{{ post.corpo[:100] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Você ainda não possui posts publicados.</p>
+    {% endif %}
+
+<hr>
+
+    <h2>Crie um post abaixo:</h2>
+
+
+{% endblock %}

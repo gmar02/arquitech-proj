@@ -23,6 +23,24 @@ class Usuario(schema.Model):
     def __repr__(self):
         return '<Usuário %r>' % self.id
 
+
+class Post(schema.Model):
+
+    __tablename__ = 'post'
+
+    id = schema.Column(schema.Integer, primary_key=True)
+    titulo = schema.Column(schema.String(300), nullable=False) 
+    subtitulo = schema.Column(schema.String(500), nullable=False)
+    corpo = schema.Column(schema.Text, nullable=False)
+    modelo3d = schema.Column(schema.LargeBinary, nullable=True)
+
+    # Relacionamento com tabela de Usuário
+    id_autor = schema.Column(schema.Integer, schema.ForeignKey('usuario.id'), nullable=False)
+    autor = schema.relationship('Usuario', backref='posts')
+
+    def __repr__(self):
+        return "<Post %r>" % self.id
+
 ###############################################################
 
 @app.cli.command('inic_dados')
@@ -59,11 +77,20 @@ def login():
     return render_template('login.html')
 
 @app.route("/autor/<int:id>", methods=['GET'])
-def autor(id):
-    return f"BEM VINDO À PÁGINA DO AUTOR! ID: {id}"
+def hub_autor(id):
+
+    # Obtendo Usuário
+    usuario = Usuario.query.get(id)
+
+    if usuario:
+        # Obtendo lista de posts do usuario (autor)
+        posts_do_usuario = Post.query.filter_by(id_autor=id).all()
+        return render_template('autor.html', autor=usuario, posts_do_autor=posts_do_usuario)
+
+    return f"Usuário de id {id} não encontrado.", 404
 
 @app.route("/leitor/<int:id>", methods=['GET'])
-def leitor(id):
+def hub_leitor(id):
     return f"BEM VINDO À PÁGINA DO LEITOR! ID: {id}"
 
 ###############################################################
