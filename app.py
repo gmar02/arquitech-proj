@@ -1,15 +1,17 @@
+################################  IMPORTAÇÕES  ################################
+
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from data import carregar_dados
 
-###############################################################
+###############################  CONFIGURAÇÕES  ###############################
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///schema.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 schema = SQLAlchemy(app)
 
-###############################################################
+#################################  ENTIDADES  #################################
 
 class Usuario(schema.Model):
 
@@ -41,7 +43,7 @@ class Post(schema.Model):
     def __repr__(self):
         return "<Post %r>" % self.id
 
-###############################################################
+################################  COMANDOS CLI  ###############################
 
 @app.cli.command('inic_dados')
 def inicializar_dados():
@@ -54,7 +56,7 @@ def inicializar_dados():
     print("Carregando dados para o schema...")
     carregar_dados()
 
-###############################################################
+###################################  ROTAS  ###################################
 
 @app.route("/", methods=['GET', 'POST'])
 def login():
@@ -93,7 +95,7 @@ def hub_autor(id):
 def hub_leitor(id):
     return f"BEM VINDO À PÁGINA DO LEITOR! ID: {id}"
 
-###############################################################
+###################################  EXTRA  ###################################
 
 if __name__ == "__main__":
     app.run(debug=True)

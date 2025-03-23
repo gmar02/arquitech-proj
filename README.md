@@ -34,3 +34,4 @@
 * https://www.conventionalcommits.org/en/v1.0.0/
 * https://www.sqlalchemy.org/
 * https://stackoverflow.com/questions/73570041/flask-deprecated-before-first-request-how-to-update
+* https://www.atlassian.com/git/tutorials/saving-changes/gitignore
