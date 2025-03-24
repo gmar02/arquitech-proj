@@ -12,6 +12,8 @@
 
 * Instale as dependências utilizando `pip install -r requirements.txt`
 
+* Configure a variável de ambiente com `export FLASK_APP=app.py` (Unix) ou `set FLASK_APP=app.py` (Windows)
+
 * Crie o schema e carregue os dados com `flask inic_dados`
 
 * Inicialize o app com `flask run`
