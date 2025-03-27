@@ -8,7 +8,7 @@
 
 * Crie um ambiente virtual no repositório utilizando `python3 -m venv venv`
 
-* Inicialize o ambiente virtual `source ./.venv/bin/activate`
+* Inicialize o ambiente virtual `source ./venv/bin/activate`
 
 * Instale as dependências utilizando `pip install -r requirements.txt`
 
@@ -26,7 +26,8 @@
 * Victor Hugo de Sá Reis (03232089);
 * Jesus Travessa de Melo Júnior (03253833);
 * Gean Lucas Barroso Pedrosa (03203330);
-* Ives Gomes Firmo (03254287).
+* Ives Gomes Firmo (03254287);
+* Raimundo Pereira dos Santos Neto (03351865).
 
 ## Referências
 
