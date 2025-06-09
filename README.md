@@ -27,7 +27,8 @@
 * Jesus Travessa de Melo Júnior (03253833);
 * Gean Lucas Barroso Pedrosa (03203330);
 * Ives Gomes Firmo (03254287);
-* Raimundo Pereira dos Santos Neto (03351865).
+* Raimundo Pereira dos Santos Neto (03351865);
+* João Tavares Meireles Neto (03111892).
 
 ## Referências
 
